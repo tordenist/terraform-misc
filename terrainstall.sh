@@ -2,7 +2,7 @@
 
 terraform_url=$(curl --silent https://releases.hashicorp.com/index.json | jq '{terraform}' | egrep "linux.*64" | sort -rh | head -1 | awk -F[\"] '{print $4}')
 
-# Create a move into directory.
+# Create and move into directory.
 cd
 mkdir terraform && cd $_
 
@@ -17,3 +17,5 @@ export PATH=~/terraform/:$PATH
 ' >>~/.bash_profile
 
 source ~/.bash_profile
+
+echo 'TERRAFORM INSTALLATION DONE'
